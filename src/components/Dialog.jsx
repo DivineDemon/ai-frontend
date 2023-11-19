@@ -1,37 +1,32 @@
 import {
   Modal,
-  ModalContent,
-  ModalHeader,
+  // Button,
   ModalBody,
-  ModalFooter,
-  Button,
+  ModalHeader,
+  // ModalFooter,
+  ModalContent,
 } from "@nextui-org/react";
+import Dropzone from "./Dropzone";
 
 const Dialog = ({ isOpen, onOpenChange, title }) => {
   return (
-    <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+    <Modal size={"2xl"} isOpen={isOpen} onOpenChange={onOpenChange}>
       <ModalContent>
-        {(onClose) => (
+        {() => (
           <>
-            <ModalHeader className="flex flex-col gap-1">{title}</ModalHeader>
-            <ModalBody>
-              <p>
-                Magna exercitation reprehenderit magna aute tempor cupidatat
-                consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                aliqua enim laboris do dolor eiusmod. Et mollit incididunt nisi
-                consectetur esse laborum eiusmod pariatur proident Lorem eiusmod
-                et. Culpa deserunt nostrud ad veniam.
-              </p>
+            <ModalHeader className="flex flex-col gap-1 border-b">
+              {title}
+            </ModalHeader>
+            <ModalBody style={{ padding: "0px" }}>
+              <div className="w-full h-full grid grid-cols-2 items-center justify-center">
+                <div className="w-full h-full flex items-center justify-center text-center p-5">
+                  <Dropzone />
+                </div>
+                <div className="w-full h-full flex items-center justify-center text-center">
+                  Wait for your Results Here.
+                </div>
+              </div>
             </ModalBody>
-            <ModalFooter>
-              <Button color="danger" variant="light" onPress={onClose}>
-                Close
-              </Button>
-              <Button color="primary" onPress={onClose}>
-                Submit
-              </Button>
-            </ModalFooter>
           </>
         )}
       </ModalContent>
